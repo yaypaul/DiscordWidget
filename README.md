@@ -18,9 +18,9 @@ Options Include;
 * Panel position
 
 # Change Log
-1.0 Initial release.
-0.2 Created ability to force the plugin to render at the top of the Panel.
-0.1 Created plugin core hooks and settings page.
+1.0 Initial release.  
+0.2 Created ability to force the plugin to render at the top of the Panel.  
+0.1 Created plugin core hooks and settings page.  
 
 # License
 MIT  
