@@ -1,5 +1,6 @@
 # DiscordWidget
-Discord Widget plugin module for Vanilla Forums
+Discord Widget plugin module for Vanilla Forums.  
+Creates a settings page to setup your Discord widget and adds it to your sidebar.
 
 ### Version
 1.0

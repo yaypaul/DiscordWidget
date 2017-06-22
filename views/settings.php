@@ -69,12 +69,12 @@
         <?php echo t( 'Please see the Vanilla Forums Plugin page to give Feedback or Suggestions.' ); ?>
         <br>
         <?php echo Anchor( Gdn_Format::Text( "Discord Widget on Vanilla Forums >>"), 
-            Gdn_Format::Url( "https://open.vanillaforums.com/profile/addons/63521/YayPaul" ) ); ?>
+            Gdn_Format::Url( "https://open.vanillaforums.com/addon/discordwidget-plugin" ) ); ?>
     </div>
     <div class="DiscordWidget__info">
         <?php echo t( 'Please see the Github page for Bug reports, or to Contribute.' ); ?>
         <br>
         <?php echo Anchor( Gdn_Format::Text( "Discord Widget on Github >>"), 
-            Gdn_Format::Url( "https://github.com/yaypaul" ) ); ?>
+            Gdn_Format::Url( "https://github.com/yaypaul/DiscordWidget" ) ); ?>
     </div>
 </div>

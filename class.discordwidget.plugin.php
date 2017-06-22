@@ -3,7 +3,7 @@
 $PluginInfo[ 'DiscordWidget' ] = [
     'Name' => 'Discord Widget',
     'Description' => 'Creates a settings page to setup your Discord widget and adds it to your sidebar.',
-    'Version' => '0.1',
+    'Version' => '1.0',
     'RequiredApplications' => array( 'Vanilla' => '2.3' ),
     'SettingsUrl' => '/dashboard/settings/discordwidget',
     'SettingsPermission' => 'Garden.Settings.Manage',
