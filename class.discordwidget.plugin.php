@@ -3,8 +3,8 @@
 $PluginInfo[ 'DiscordWidget' ] = [
     'Name' => 'Discord Widget',
     'Description' => 'Creates a settings page to setup your Discord widget and adds it to your sidebar.',
-    'Version' => '1.0',
-    'RequiredApplications' => array( 'Vanilla' => '2.3' ),
+    'Version' => '1.1',
+    'RequiredApplications' => array( 'Vanilla' => '2.5' ),
     'SettingsUrl' => '/dashboard/settings/discordwidget',
     'SettingsPermission' => 'Garden.Settings.Manage',
     'RequiredPlugins' => FALSE,
@@ -32,17 +32,7 @@ $PluginInfo[ 'DiscordWidget' ] = [
  * @copyright 2017 Paul West.
  * @license MIT
  */
-class DiscordWidget extends Gdn_Plugin {
-
-	/**
-     * Plugin constructor
-     *
-     * @package DiscordWidget
-     * @since 1.0
-     */
-    public function __construct() {
-
-    }
+class DiscordWidgetPlugin extends Gdn_Plugin {
 
     /**
      * Plugin setup
@@ -51,27 +41,12 @@ class DiscordWidget extends Gdn_Plugin {
      * @since 1.0
      */
     public function setup() {
-
         // Set up the plugin's default values
-        saveToConfig( 'Plugin.DiscordWidget.ServerID', "" );
-        saveToConfig( 'Plugin.DiscordWidget.Theme', "dark" );
-        saveToConfig( 'Plugin.DiscordWidget.Width', "300" );
-        saveToConfig( 'Plugin.DiscordWidget.Height', "400" );
-        saveToConfig( 'Plugin.DiscordWidget.ForceTop', "bottom" );
-
-        // Trigger database changes
-        $this->structure();
-
-    }
-
-    /**
-     * Plugin Structure
-     *
-     * @package DiscordWidget
-     * @since 1.0
-     */
-    public function structure() {
-
+        touchConfig( 'Plugin.DiscordWidget.ServerID', "" );
+        touchConfig( 'Plugin.DiscordWidget.Theme', "dark" );
+        touchConfig( 'Plugin.DiscordWidget.Width', "300" );
+        touchConfig( 'Plugin.DiscordWidget.Height', "400" );
+        touchConfig( 'Plugin.DiscordWidget.ForceTop', "bottom" );
     }
 
     /**
@@ -162,7 +137,7 @@ class DiscordWidget extends Gdn_Plugin {
             //Save
             $Saved = $Sender->Form->save();
             //if( $Saved ) {
-                $Sender->StatusMessage = t( "Your changes have been saved." );
+                $Sender->informMessage(t( "Your changes have been saved." ));
             
                 //Sort module position based on setting
                 $ModuleSort = c( 'Modules.Vanilla.Panel' );
@@ -176,9 +151,9 @@ class DiscordWidget extends Gdn_Plugin {
             //}
         }
 
-        $Sender->addSideMenu( '/dashboard/settings/discordwidget' );
+        $Sender->setHighlightRoute( '/dashboard/settings/discordwidget' );
         $Sender->title( 'Discord Widget' );
-        $Sender->render( $this->getView( 'settings.php' ) );
+        $Sender->render( $Sender->fetchViewLocation( 'settings', '', 'plugins/DiscordWidget' ) );
 
     }
 
@@ -211,5 +186,3 @@ class DiscordWidget extends Gdn_Plugin {
     }
 
 }
-
-?>
